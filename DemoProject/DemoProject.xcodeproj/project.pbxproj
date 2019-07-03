@@ -117,7 +117,6 @@
 		46B5ABE822C371A3002430FC /* DemoProject */ = {
 			isa = PBXGroup;
 			children = (
-				468B062022CC89E9000C8492 /* CustomControls */,
 				4676FD8222C48A2500BEF137 /* CountryPicker */,
 				46B5ABE922C371A3002430FC /* AppDelegate.swift */,
 				46B5ABED22C371A3002430FC /* Main.storyboard */,
@@ -127,10 +126,11 @@
 				46B5ABFB22C37453002430FC /* ViewControllers */,
 				46B5ABFC22C37460002430FC /* Cells */,
 				46B5ABFE22C3746E002430FC /* Presenters */,
-				46B5ABFF22C37488002430FC /* Network */,
 				46B5ABFD22C37467002430FC /* Models */,
-				46B5AC0022C374C0002430FC /* Extensions */,
 				46B5AC0122C374CB002430FC /* Utilities */,
+				468B062022CC89E9000C8492 /* CustomControls */,
+				46B5AC0022C374C0002430FC /* Extensions */,
+				46B5ABFF22C37488002430FC /* Network */,
 			);
 			path = DemoProject;
 			sourceTree = "<group>";

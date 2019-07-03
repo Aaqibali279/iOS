@@ -33,7 +33,7 @@ enum AlertTitle {
     }
 }
 
-enum Messages {
+enum Message {
     case custom(String)
     case message
     case network
@@ -59,7 +59,7 @@ extension UIViewController {
         navigationController?.popViewController(animated: true)
     }
     
-    func alert(title: AlertTitle = .appName, message: Messages, options: AlertButtonTitle..., completion: ActionHandler? = nil) {
+    func alert(title: AlertTitle = .appName, message: Message, options: AlertButtonTitle..., completion: ActionHandler? = nil) {
         let alertController = UIAlertController(title: title.value, message: message.value, preferredStyle: .alert)
         for (index, option) in options.enumerated() {
             alertController.addAction(UIAlertAction.init(title: option.value, style: (options.count > 1 ? (option != .cancel ? UIAlertAction.Style.default : UIAlertAction.Style.default) : UIAlertAction.Style.default), handler: { (action) in

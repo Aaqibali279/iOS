@@ -7,7 +7,7 @@
 //
 
 typealias Success<Element:Decodable> = (_ success:Element) -> ()
-typealias Message = (_ message:Messages?) -> ()
+typealias ErrorMessage = (_ message:Message) -> ()
 
 import Foundation
 import Alamofire
@@ -17,7 +17,7 @@ struct Network {
     static let instance = Network()
     private init(){}
     
-    func request<Element:Decodable>(endPoint: String,method:HTTPMethod, parameters: [String: Any]? = nil,showIndicator: Bool? = true, success: Success<Element>? = nil,message:Message? = nil) {
+    func request<Element:Decodable>(endPoint: String,method:HTTPMethod, parameters: [String: Any]? = nil,showIndicator: Bool? = true, success: Success<Element>? = nil,message:ErrorMessage? = nil) {
         
         if !NetworkReachabilityManager()!.isReachable {
             message?(.network)
@@ -76,31 +76,78 @@ struct Network {
         }
     }
     
-
-
-
-
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+//    func upload(endPoint:String) {
+//        if !NetworkReachabilityManager()!.isReachable {
+//
+//            return
+//        }
+//
+//
+//        let parameters = ["user":"Sol", "password":"secret1234"]
+//
+//        guard let imageToUploadURL = Bundle.main.url(forResource: "tree", withExtension: "png") else{
+//            return
+//        }
+//
+//        let url = "http://localhost:8888/upload_image.php"
+//
+//        Alamofire.upload(multipartFormData: { (multipartData) in
+//            multipartData.append(imageToUploadURL, withName: "name")
+//        }, to: url) { (result) in
+//            switch result{
+//            case .success(let upload,_,_):
+//                upload.responseData(completionHandler: { (dataResponse) in
+//                    if let error = dataResponse.error{
+//                        print(error)
+//                        return
+//                    }
+//
+//                    guard let data = dataResponse.data else{
+//                        print("Error")
+//                        return
+//                    }
+//                    print("DATA",data)
+//                })
+//                upload.uploadProgress(closure: { (progress) in
+//                    print(progress.fractionCompleted,progress.totalUnitCount)
+//                })
+//            case .failure(let error):
+//                print(error)
+//            }
+//        }
+//    }
+    
+    
+    
+    
+    
+    
 //    func uploadMediaToServer(api: String, imgMedia: [String: Data]? = nil, videoMedia: [String: Data]? = nil,
 //                             audioMedia: [String: Data]? = nil,
 //                             parameters: [String: AnyObject]? = nil,
-//                             showIndicator: Bool? = true, responseClosure: @escaping WebServiceResponse) {
+//                             showIndicator: Bool? = true) {
 //        if !NetworkReachabilityManager()!.isReachable {
-//            displayAlertWithSettings()
 //            return
 //        }
 //
 //        if showIndicator! {
-//            Indicator.shared.show()
+//            Indicator.instance.show()
 //        }
 //
 //        var header: [String: String] = [:]
-//        if let token = UserDefaultsManager.loginToken {
-//            if token != "" {
-//                let accessToken = "Bearer " + (UserDefaultsManager.loginToken ?? "")
-//                header = ["Authorization": accessToken]
-//            }
-//        }
-//        let apiString = Apis.kBaseUrl + api
+//
+//        let apiString = Apis.BASE_URL + api
 //        print(apiString)
 //        debugPrint("********************************* API Request **************************************")
 //        debugPrint("Request URL:\(apiString)")
@@ -109,17 +156,7 @@ struct Network {
 //        debugPrint("************************************************************************************")
 //        var url = try! URLRequest.init(url: apiString, method: .post, headers: header)
 //        url.timeoutInterval = 180
-//        //        if type == "put"
-//        //        {
-//        //            url = try! URLRequest.init(url: apiString, method: .put, headers: header)
-//        //
-//        //        }
-//        //        else
-//        //        {
-//        //            url = try! URLRequest.init(url: apiString, method: .post, headers: header)
-//        //
-//        //
-//        //        }
+//
 //
 //        Alamofire.upload(multipartFormData: { (formdata) in
 //            if let params = parameters {
@@ -155,29 +192,30 @@ struct Network {
 //            switch encodingResult {
 //            case .success(let upload,_,_):
 //                upload.responseJSON(completionHandler: { (response) in
-//                    Indicator.shared.hide()
+//                    Indicator.instance.hide()
 //                    switch response.result {
 //                    case .success(_):
 //                        print(NSString(data: response.data!, encoding: String.Encoding.utf8.rawValue) ?? "")
 //                        if let data = response.result.value as? NSDictionary {
-//                            responseClosure(data, nil,response.data)
+////                            responseClosure(data, nil,response.data)
 //
 //                        }
 //                    case .failure(let error):
+//                        print(error)
 //                        //                    switch ApiEndPoints.self {
 //                        //                    case .getNewMessages:
 //                        //                        break
 //                        //                    default:
-//                        StatusHandler.handle(error: error)
+//
 //                        // }
 //                    }
 //                })
 //            case .failure(let error):
-//                StatusHandler.handle(error: error)
+//                break
 //            }
 //        }
 //    }
-//
+
 
     
 }
