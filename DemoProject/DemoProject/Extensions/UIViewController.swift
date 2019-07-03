@@ -26,7 +26,7 @@ enum AlertTitle {
     case location
     var value: String {
         switch self {
-        case .appName: return "GANA App"
+        case .appName: return "Demo App"
         case .interNet: return "No Internet Connection"
         case .location: return "Location Services"
         }
