@@ -23,4 +23,14 @@ extension String{
         label.sizeToFit()
         return label.frame.height
     }
+    
+    func width(font:UIFont, height:CGFloat) -> CGFloat{
+        let label:UILabel = UILabel(frame: CGRect(x: 0, y: 0, width: CGFloat.greatestFiniteMagnitude, height: height))
+        label.numberOfLines = 0
+        label.lineBreakMode = NSLineBreakMode.byWordWrapping
+        label.font = font
+        label.text = self
+        label.sizeToFit()
+        return label.frame.width
+    }
 }

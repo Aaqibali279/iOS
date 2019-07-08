@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		46251B8322D35873005B6D99 /* ViewPagerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46251B8222D35873005B6D99 /* ViewPagerVC.swift */; };
+		46251B8522D3590E005B6D99 /* ViewPagerCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46251B8422D3590E005B6D99 /* ViewPagerCells.swift */; };
 		4676FD7422C47A1F00BEF137 /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4676FD7322C47A1F00BEF137 /* UITextField.swift */; };
 		4676FD7622C4879E00BEF137 /* MyUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4676FD7522C4879E00BEF137 /* MyUserDefaults.swift */; };
 		4676FD8E22C48B1E00BEF137 /* CallingCodes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4676FD8D22C48B1E00BEF137 /* CallingCodes.plist */; };
@@ -35,6 +37,8 @@
 
 /* Begin PBXFileReference section */
 		1BD2AA785BD26229ED357862 /* Pods-DemoProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DemoProject.release.xcconfig"; path = "Target Support Files/Pods-DemoProject/Pods-DemoProject.release.xcconfig"; sourceTree = "<group>"; };
+		46251B8222D35873005B6D99 /* ViewPagerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewPagerVC.swift; sourceTree = "<group>"; };
+		46251B8422D3590E005B6D99 /* ViewPagerCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewPagerCells.swift; sourceTree = "<group>"; };
 		4676FD7322C47A1F00BEF137 /* UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
 		4676FD7522C4879E00BEF137 /* MyUserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyUserDefaults.swift; sourceTree = "<group>"; };
 		4676FD8D22C48B1E00BEF137 /* CallingCodes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CallingCodes.plist; sourceTree = "<group>"; };
@@ -139,6 +143,7 @@
 			isa = PBXGroup;
 			children = (
 				46B5ABEB22C371A3002430FC /* ViewController.swift */,
+				46251B8222D35873005B6D99 /* ViewPagerVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -146,6 +151,7 @@
 		46B5ABFC22C37460002430FC /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				46251B8422D3590E005B6D99 /* ViewPagerCells.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -333,8 +339,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				468B061F22CC84FB000C8492 /* AuthenticationPresenter.swift in Sources */,
+				46251B8522D3590E005B6D99 /* ViewPagerCells.swift in Sources */,
 				46B5ABEC22C371A3002430FC /* ViewController.swift in Sources */,
 				46B5AC0B22C37842002430FC /* Indicator.swift in Sources */,
+				46251B8322D35873005B6D99 /* ViewPagerVC.swift in Sources */,
 				46B5ABEA22C371A3002430FC /* AppDelegate.swift in Sources */,
 				468B062222CC8A0B000C8492 /* View.swift in Sources */,
 				4676FD9222C48B8A00BEF137 /* Country.swift in Sources */,

@@ -17,7 +17,12 @@ struct Network {
     static let instance = Network()
     private init(){}
     
-    func request<Element:Decodable>(endPoint: String,method:HTTPMethod, parameters: [String: Any]? = nil,showIndicator: Bool? = true, success: Success<Element>? = nil,message:ErrorMessage? = nil) {
+    func request<Element:Decodable>(endPoint: String
+        , method:HTTPMethod
+        , parameters: [String: Any]? = nil
+        , showIndicator: Bool? = true
+        , success: Success<Element>? = nil
+        , message:ErrorMessage? = nil) {
         
         if !NetworkReachabilityManager()!.isReachable {
             message?(.network)
@@ -25,14 +30,13 @@ struct Network {
         }
         
         
-        
         let header: [String: String] = [:]
         
         let urlString = Apis.BASE_URL + endPoint
         debugPrint("********************************* API Request **************************************")
-        debugPrint("Request URL:\(urlString)")
-        debugPrint("Request Parameters: \(parameters ?? [: ])")
-        debugPrint("Request Headers: \(header)")
+        debugPrint("Request URL: ",urlString)
+        debugPrint("Request Parameters: ",parameters ?? "no parameters")
+        debugPrint("Request Headers: ",header)
         debugPrint("************************************************************************************")
         
         guard let url = URL(string: urlString) else{
@@ -42,10 +46,18 @@ struct Network {
         if showIndicator! {
             Indicator.instance.show()
         }
-        Alamofire.request(url, method: method, parameters: parameters, encoding: URLEncoding.default, headers: header).responseData { (dataResponse) in
+        Alamofire.request(url
+            , method: method
+            , parameters: parameters
+            , encoding: URLEncoding.default
+            , headers: header).responseData { (dataResponse) in
+            
+            if showIndicator! {
             DispatchQueue.main.async {
                 Indicator.instance.hide()
+                }
             }
+                
             if let error = dataResponse.error{
                 message?(.custom(error.localizedDescription))
                 return
@@ -56,7 +68,7 @@ struct Network {
                 return
             }
             
-            debugPrint("***********************************************************************")
+            debugPrint("********************************* RESPONSE START **************************************")
             do{
                 let json = try JSONSerialization.jsonObject(with: data, options:.allowFragments)
                 debugPrint("JSON: ",json)
@@ -71,7 +83,7 @@ struct Network {
                 message?(.message)
                 debugPrint("ERROR:",error)
             }
-            debugPrint("***********************************************************************")
+            debugPrint("********************************* RESPONSE END **************************************")
             
         }
     }

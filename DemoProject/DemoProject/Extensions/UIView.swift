@@ -99,3 +99,45 @@ extension UIView{
     }
 }
 
+//MARK:- IMAGE
+extension UIView{
+    func image(iv:UIImageView,cache:NSCache<NSString,UIImage>?,urlString:String?){
+        iv.image = nil
+        DispatchQueue.global(qos: .userInteractive).async {
+            
+            guard let urlString = urlString else{
+                self.setImage(iv:iv,image: nil)
+                return
+            }
+            
+            if let img = cache?.object(forKey: NSString(string:urlString)) {
+                self.setImage(iv:iv,image: img)
+                return
+            }
+            
+            guard let url = URL.init(string:  urlString) else{
+                self.setImage(iv:iv,image: nil)
+                return
+            }
+            
+            guard let data = try? Data(contentsOf: url) else {
+                self.setImage(iv:iv,image: nil)
+                return
+            }
+            
+            guard let image = UIImage(data: data) else{
+                self.setImage(iv:iv,image: nil)
+                return
+            }
+            cache?.setObject(image, forKey: NSString(string: urlString))
+            self.setImage(iv:iv,image: image)
+        }
+    }
+    
+    func setImage(iv:UIImageView,image:UIImage?) {
+        DispatchQueue.main.async {
+            iv.image = image ?? UIImage(named: "broken_image")
+        }
+    }
+}
+

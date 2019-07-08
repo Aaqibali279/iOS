@@ -29,7 +29,7 @@ struct AuthenticationPresenter {
         Network.instance.request(endPoint: Apis.LOGIN, method: .post, parameters:params, success: { (status:Status) in
             print(status.message)
         }) { (message) in
-            print(message?.value)
+            print(message.value)
         }
     }
 }

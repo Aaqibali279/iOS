@@ -15,22 +15,30 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         //Indicator.instance.show()
         
-        
-        let gesture = UITapGestureRecognizer(target: self, action: #selector(showCountryPicker))
-        view.addGestureRecognizer(gesture)
+    
         customView.lblFirstName.text = "This is the customView"
-        AuthenticationPresenter.instance.login()
+        //AuthenticationPresenter.instance.login()
         
+        
+        let btn = UIButton(frame: .init(origin: .zero, size: .init(width: 100, height: 50)))
+        btn.setTitle("Push", for: .normal)
+        btn.addTarget(self, action: #selector(showCountryPicker), for: .touchUpInside)
+        btn.setTitleColor(.black, for: .normal)
+        view.addSubview(btn)
+        btn.center = view.center
     }
     
     
     @objc func showCountryPicker(){
-        let picker = CountryPicker(style: .grouped)
-        picker.delegate = self
-        picker.showCallingCodes = true
-        picker.defaultCountryCode = "IN"
-        let pickerNavigationController = UINavigationController(rootViewController: picker)
-        self.present(pickerNavigationController, animated: true, completion: nil)
+//        let picker = CountryPicker(style: .grouped)
+//        picker.delegate = self
+//        picker.showCallingCodes = true
+//        picker.defaultCountryCode = "IN"
+//        let pickerNavigationController = UINavigationController(rootViewController: picker)
+//        self.present(pickerNavigationController, animated: true, completion: nil)
+        
+        let vc:ViewPagerVC = viewController()
+        navigationController?.pushViewController(vc, animated: true)
     }
 
 
