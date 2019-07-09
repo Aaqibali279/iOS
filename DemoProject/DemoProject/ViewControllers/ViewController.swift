@@ -36,9 +36,11 @@ class ViewController: UIViewController {
 //        picker.defaultCountryCode = "IN"
 //        let pickerNavigationController = UINavigationController(rootViewController: picker)
 //        self.present(pickerNavigationController, animated: true, completion: nil)
-        
-        let vc:ViewPagerVC = viewController()
-        navigationController?.pushViewController(vc, animated: true)
+        showToast(message: "Please enter the text Please enter the text Please enter the text Please enter the text") {
+            let vc:ViewPagerVC = self.viewController()
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+       
     }
 
 
