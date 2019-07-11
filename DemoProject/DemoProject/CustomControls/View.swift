@@ -9,7 +9,6 @@
 import UIKit
 
 class View: UIView {
-    let kCONTENT_XIB_NAME = "View"
     @IBOutlet var contentView: UIView!
     @IBOutlet var lblFirstName: UILabel!
     
@@ -24,7 +23,7 @@ class View: UIView {
     }
     
     func commonInit() {
-        Bundle.main.loadNibNamed(kCONTENT_XIB_NAME, owner: self, options: nil)
+        Bundle.main.loadNibNamed("View", owner: self, options: nil)
         contentView.fixInView(self)
     }
 }
