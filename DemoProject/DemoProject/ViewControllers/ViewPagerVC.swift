@@ -15,7 +15,6 @@ class ViewPagerVC: UIViewController {
         Tab(title:"RESTAURANTES"),
         Tab(title:"ENTRADAS"),
         Tab(title:"CARIDAD"),
-        Tab(title:"TODOS1",isSelected: true),
         Tab(title:"LISTOS1"),
         Tab(title:"RESTAURANTES1"),
         Tab(title:"ENTRADAS1"),

@@ -13,6 +13,6 @@ target 'DemoProject' do
     pod 'NVActivityIndicatorView'
     pod 'XLPagerTabStrip'
     pod 'ListPlaceholder'
-
+    pod 'Hero'
     
 end

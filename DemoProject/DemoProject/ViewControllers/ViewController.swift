@@ -7,9 +7,11 @@
 //
 
 import UIKit
+import Hero
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var iv: UIImageView!
     @IBOutlet weak var customView: View!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,20 +28,28 @@ class ViewController: UIViewController {
         btn.setTitleColor(.black, for: .normal)
         view.addSubview(btn)
         btn.center = view.center
+
     }
     
     
     @objc func showCountryPicker(){
+        
+        
+        
 //        let picker = CountryPicker(style: .grouped)
 //        picker.delegate = self
 //        picker.showCallingCodes = true
 //        picker.defaultCountryCode = "IN"
 //        let pickerNavigationController = UINavigationController(rootViewController: picker)
 //        self.present(pickerNavigationController, animated: true, completion: nil)
-        showToast(message: "Please enter the text Please enter the text Please enter the text Please enter the text") {
-            let vc:ViewPagerVC = self.viewController()
-            self.navigationController?.pushViewController(vc, animated: true)
-        }
+//        showToast(message: "Please enter the text Please enter the text Please enter the text Please enter the text") {
+        
+            let vc:DetailViewController = self.viewController()
+            vc.hero.isEnabled = true
+            vc.hero.modalAnimationType = .pageIn(direction: .left)
+            present(vc, animated: true)
+//            self.navigationController?.pushViewController(vc, animated: true)
+//        }
        
     }
 
